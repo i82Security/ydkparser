@@ -92,6 +92,41 @@ class ydkParser(object):
 						self.sideDeck.appendCard(jname)
 						continue
 		return None
+	def outputCardFile(self,filepath):
+		try:
+			f = open(filepath,"w+",encoding="utf-8")
+			f.write("怪兽\n")
+			for jname in self.mainEffectDeck.keys():
+				f.write(jname)
+				f.write("  ")
+				f.write(str(self.mainEffectDeck[jname]))
+				f.write("\n")
+			f.write("魔法\n")
+			for jname in self.mainSpellDeck.keys():
+				f.write(jname)
+				f.write("  ")
+				f.write(str(self.mainSpellDeck[jname]))
+				f.write("\n")
+			f.write("陷阱\n")
+			for jname in self.mainTrapDeck.keys():
+				f.write(jname)
+				f.write("  ")
+				f.write(str(self.mainTrapDeck[jname]))
+				f.write("\n")
+			f.write("额外\n")
+			for jname in self.extraDeck.keys():
+				f.write(jname)
+				f.write("  ")
+				f.write(str(self.extraDeck[jname]))
+				f.write("\n")
+			f.write("Side\n")
+			for jname in self.sideDeck.keys():
+				f.write(jname)
+				f.write("  ")
+				f.write(str(self.sideDeck[jname]))
+				f.write("\n")
+		except Exception as e:
+			print(e)
 	def reportResult(self):
 		print("怪兽")
 		for jname in self.mainEffectDeck.keys():
